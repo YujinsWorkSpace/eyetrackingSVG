@@ -10,14 +10,17 @@ import useAutoScroll from './useAutoScroll';
 import DropDownMenu from "./DropDownMenu.jsx";
 import ZoomModeDropDown from "./DropDownButton.jsx";
 import jpg from './cactus-8250996_1280.jpg'
-import BarChart from "./barchart.svg?react"
+import BarChart from "./barchart.svg";
 import useWindowMirror from "./useWindowMirror.js";
+import BarchartSVG from "./components/BarchartSVG.jsx";
+
 function App() {
     const [darkTheme, setDarkTheme] = useState(false);
     const [svgSize, setSvgSize] = useState(100); // Default SVG size
     const [openDropDown, setOpenDropDown] = useState(false);
     const [selected, setSelected] = useState('Default');
     const [onWindow, setOnWindow] = useState(false);
+
 
     // const mainRef = useRef(null);
 
@@ -93,16 +96,18 @@ function App() {
                   <Route path="/targetAcquisition" element={<TargetAcquisition/>}/>
                   <Route path="/readingTask" element={
                         onWindow ? (
-                            <div id="main">
-                                {/*<BarChart className="svg" style={{ width: "100%"}}/>*/}
-                                <img src={jpg} width="100%" />
-                                {/*<ReadingTask svgSize={100} />*/}
-                                <div id="mirror" >
-                                    {/*<ReadingTask svgSize={svgSize} />*/}
-                                    <img src={jpg}/>
-                                    {/*<BarChart className="svg"/>*/}
-                                </div>
-                            </div>
+                            // <div id="main">
+                            //     {/*<BarChart className="svg" style={{ width: "100%"}}/>*/}
+                            //     <img src={BarChart} width="100%" />
+                            //     {/*<ReadingTask svgSize={100} />*/}
+                            //     <div id="mirror" >
+                            //         {/*<ReadingTask svgSize={svgSize} />*/}
+                            //         <img src={BarChart}/>
+                            //         {/*<BarChart className="svg"/>*/}
+                            //     </div>
+                            // </div>
+
+                            <BarchartSVG width={700} height={580}/>
                             )
                             :
                       <ReadingTask svgSize={svgSize}/>

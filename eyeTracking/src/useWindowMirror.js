@@ -27,7 +27,7 @@ const useWindowMirror = (isActivated) => {
 
                 if ( adjustWindowMirror() ) {
                     timer = setTimeout(checkForWindowMirror, 300);
-                    console.log(timer);
+                    // console.log(timer);
                 }
             })();
 
