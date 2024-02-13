@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import OriginalSVG from './OriginalSVG.jsx';
 import DuplicatedSVG from './DuplicatedSVG.jsx';
 
-const BarchartSVG = () => {
+const BarchartSVG = ({ svgSize }) => {
     const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
     const svgRef = useRef(null);
 
@@ -15,13 +15,26 @@ const BarchartSVG = () => {
         });
     };
 
+    // Convert svgSize to a scale factor; assuming svgSize 100 is normal (1x scale)
+    const scale = svgSize / 100;
+
+    // Keep the dimensions and position constants for the clipping, but scale the duplicated SVG
+    const rectWidth = 500; // Fixed width for clipping area
+    const rectHeight = 250; // Fixed height for clipping area
+
+    // Calculate the inset values for the clipping area
+    const insetTop = cursorPos.y - rectHeight / 2;
+    const insetRight = svgRef.current ? svgRef.current.offsetWidth - cursorPos.x - rectWidth / 2 : 0;
+    const insetBottom = svgRef.current ? svgRef.current.offsetHeight - cursorPos.y - rectHeight / 2 : 0;
+    const insetLeft = cursorPos.x - rectWidth / 2;
+
     return (
         <div
             ref={svgRef}
             onMouseMove={handleMouseMove}
-            style={{ position: 'relative', width: '700px', height: '580px' }}
+            style={{ position: 'relative' }}
         >
-            <OriginalSVG />
+            <OriginalSVG style={{ width: `${svgSize}%`, height: `${svgSize}%`}} />
             <div
                 style={{
                     position: 'absolute',
@@ -29,11 +42,25 @@ const BarchartSVG = () => {
                     left: 0,
                     width: '100%',
                     height: '100%',
-                    clipPath: `circle(100px at ${cursorPos.x}px ${cursorPos.y}px)`,
+                    clipPath: `inset(${insetTop}px ${insetRight}px ${insetBottom}px ${insetLeft}px)`,
                     pointerEvents: 'none',
                 }}
             >
-                <DuplicatedSVG cursorPos={cursorPos} />
+                {/* Apply the scaling directly to the DuplicatedSVG container */}
+                <div
+                    style={{
+                        transform: `scale(${scale})`,
+                        transformOrigin: 'center center', // This might need adjustment
+                        width: '100%',
+                        height: '100%',
+                        position: 'absolute',
+                        left: 0,
+                        top: 0,
+                        overflow: "hidden",
+                    }}
+                >
+                    <DuplicatedSVG cursorPos={cursorPos} />
+                </div>
             </div>
         </div>
     );

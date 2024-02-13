@@ -73,19 +73,11 @@ function App() {
                       {openDropDown && <li onClick={() => setOpenDropDown(prevState => !prevState)}><DropDownMenu onSelect={handleSelectionChange} selected={selected}/></li>}
                       { (selected === 'Pan' || selected === 'Window') &&
                           <li>
-                          <span className="slider-label nav-links">Zoom: </span>
-                          <div><input
-                              type="range"
-                              className="slider"
-                              id="svg-size-slider"
-                              min="50"
-                              max="200"
-                              value={svgSize}
-                              onChange={(e) => {
-                                  (selected === 'Pan') && setSvgSize(e.target.value)
-                              }}
-                          />
-                          </div>
+                              <div className="zoom-controls">
+                                  <button onClick={() => setSvgSize(prev => Math.max(50, prev - 10))}>-</button>
+                                  <span>Zoom: {svgSize}%</span>
+                                  <button onClick={() => setSvgSize(prev => Math.min(200, prev + 10))}>+</button>
+                              </div>
                       </li>
                       }
                   </ul>
@@ -96,18 +88,7 @@ function App() {
                   <Route path="/targetAcquisition" element={<TargetAcquisition/>}/>
                   <Route path="/readingTask" element={
                         onWindow ? (
-                            // <div id="main">
-                            //     {/*<BarChart className="svg" style={{ width: "100%"}}/>*/}
-                            //     <img src={BarChart} width="100%" />
-                            //     {/*<ReadingTask svgSize={100} />*/}
-                            //     <div id="mirror" >
-                            //         {/*<ReadingTask svgSize={svgSize} />*/}
-                            //         <img src={BarChart}/>
-                            //         {/*<BarChart className="svg"/>*/}
-                            //     </div>
-                            // </div>
-
-                            <BarchartSVG width={700} height={580}/>
+                            <BarchartSVG svgSize={svgSize}/>
                             )
                             :
                       <ReadingTask svgSize={svgSize}/>

@@ -19,9 +19,14 @@
   text-align: center;
   padding: 10px 0;
   margin-top: 0;
-  display: flex; /* Use flex display for the navbar */
-  align-items: center; /* Align items vertically */
-  justify-content: center; /* Center items horizontally */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed; /* Make it fixed position */
+  top: 0; /* Stick to the top */
+  left: 0; /* Align to the left */
+  width: 100%; /* Take full width */
+  z-index: 1000; /* Ensure it's above other content */
 }
 
 .nav-links {
@@ -70,6 +75,7 @@ body {
   margin: 0;
   background-color: var(--background-color);
   color: var(--color);
+  padding-top: 60px;
 }
 
 .font {
@@ -170,10 +176,9 @@ body {
   pointer-events: none;
   transform: scale(2); /* Adjust magnification level as needed */
   transform-origin: center;
+  z-index: 10;
+  top: 50px;
 }
-
-
-
 
 .dropDownProfile {
   position: absolute;
@@ -198,58 +203,17 @@ body {
   border-top: 1px solid gray;
 }
 
-/*#windowMagnifier {*/
-/*  width: 1000px;*/
-/*  height: 1000px;*/
-
-/*}*/
-
-/*.svg {*/
-/*  display: block;*/
-/*}*/
-
-/*#main {*/
-/*  !*width: 500px;*!*/
-/*  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);*/
-/*  position: relative;*/
-/*  overflow: hidden;*/
-/*}*/
-
-/*#mirror {*/
-/*  width: 500px;*/
-/*  height: 500px;*/
-/*  border-radius: 50%;*/
-/*  border: 5px solid #fff;*/
-/*  overflow: hidden;*/
-/*  position: absolute;*/
-/*  top: 0;*/
-/*  left: 0;*/
-/*}*/
-
-/*#mirror .svg {*/
-/*  position: absolute;*/
-/*}*/
-
-
-
-img {
-  display: block;
+.zoom-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Adjust the spacing between controls */
 }
-#main {
-  width: 500px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, .4);
-  position: relative;
-  overflow: hidden;
+
+.zoom-controls button {
+  padding: 5px 10px; /* Adjust padding to your preference */
+  font-size: 16px; /* Adjust font size to your preference */
 }
-#mirror {
-  position: absolute;
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  border: 5px solid white;
-  overflow: hidden;
-  top: 0;
-}
-#mirror img {
-  position: absolute;
+
+.zoom-controls span {
+  font-size: 16px; /* Adjust font size to your preference */
 }

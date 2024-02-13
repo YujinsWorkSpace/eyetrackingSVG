@@ -5,12 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21905a60-439e-4ca4-a8fd-9e0c8dca5f00" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/eyeTracking/src/components/BarchartSVG.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/eyeTracking/src/components/DuplicatedSVG.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/eyeTracking/src/components/OriginalSVG.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eyeTracking/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/eyeTracking/src/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eyeTracking/src/useWindowMirror.js" beforeDir="false" afterPath="$PROJECT_DIR$/eyeTracking/src/useWindowMirror.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eyeTracking/src/components/BarchartSVG.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/eyeTracking/src/components/BarchartSVG.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eyeTracking/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/eyeTracking/src/index.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +31,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/yujin/Developer/Eye Tracking",
+    "last_opened_file_path": "/Users/yujin/Developer/Eye Tracking/eyeTracking/src",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -57,7 +55,7 @@
       <updated>1703946998244</updated>
       <workItem from="1703946999376" duration="46236000" />
       <workItem from="1705559258246" duration="43034000" />
-      <workItem from="1706362922586" duration="8166000" />
+      <workItem from="1706362883516" duration="27168000" />
     </task>
     <servers />
   </component>
