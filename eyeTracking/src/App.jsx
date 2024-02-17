@@ -87,11 +87,7 @@ function App() {
                   </Route>
                   <Route path="/targetAcquisition" element={<TargetAcquisition/>}/>
                   <Route path="/readingTask" element={
-                        onWindow ? (
-                            <BarchartSVG svgSize={svgSize}/>
-                            )
-                            :
-                      <ReadingTask svgSize={svgSize}/>
+                    <BarchartSVG svgSize={svgSize} windowOn={onWindow}/>
                   }/>
               </Routes>
           </Router>

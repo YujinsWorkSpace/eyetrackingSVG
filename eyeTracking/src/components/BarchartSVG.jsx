@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import OriginalSVG from './OriginalSVG.jsx';
 import DuplicatedSVG from './DuplicatedSVG.jsx';
 
-const BarchartSVG = ({ svgSize }) => {
+const BarchartSVG = ({ svgSize, windowOn }) => {
     const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
     const svgRef = useRef(null);
 
@@ -47,20 +47,25 @@ const BarchartSVG = ({ svgSize }) => {
                 }}
             >
                 {/* Apply the scaling directly to the DuplicatedSVG container */}
-                <div
-                    style={{
-                        transform: `scale(${scale})`,
-                        transformOrigin: 'center center', // This might need adjustment
-                        width: '100%',
-                        height: '100%',
-                        position: 'absolute',
-                        left: 0,
-                        top: 0,
-                        overflow: "hidden",
-                    }}
-                >
-                    <DuplicatedSVG cursorPos={cursorPos} />
-                </div>
+                {windowOn && 
+                    (
+                        <div
+                            style={{
+                                transform: `scale(${scale})`,
+                                transformOrigin: 'center center', // This might need adjustment
+                                width: '100%',
+                                height: '100%',
+                                position: 'absolute',
+                                left: 0,
+                                top: 0,
+                                overflow: "hidden",
+                            }}
+                        >
+                            <DuplicatedSVG cursorPos={cursorPos} />
+                        </div>
+                    )
+                }
+                
             </div>
         </div>
     );
