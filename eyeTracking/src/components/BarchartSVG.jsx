@@ -34,7 +34,12 @@ const BarchartSVG = ({ svgSize, windowOn }) => {
             onMouseMove={handleMouseMove}
             style={{ position: 'relative' }}
         >
-            <OriginalSVG style={{ width: `${svgSize}%`, height: `${svgSize}%`}} />
+            {
+                windowOn ? <OriginalSVG style={{ width: `100%`, height: `100%`}} />
+                    :
+                    <OriginalSVG style={{ width: `${svgSize}%`, height: `${svgSize}%`}} />
+            }
+
             <div
                 style={{
                     position: 'absolute',
