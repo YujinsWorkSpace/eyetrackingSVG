@@ -22,6 +22,9 @@ const BarchartSVG = ({ svgSize, windowOn }) => {
     const rectWidth = 500; // Fixed width for clipping area
     const rectHeight = 250; // Fixed height for clipping area
 
+    const adjustX = (cursorPos.x - rectWidth / 2) * (1 - scale);
+    const adjustY = (cursorPos.y - rectHeight / 2) * (1 - scale);
+
     // Calculate the inset values for the clipping area
     const insetTop = cursorPos.y - rectHeight / 2;
     const insetRight = svgRef.current ? svgRef.current.offsetWidth - cursorPos.x - rectWidth / 2 : 0;
@@ -52,17 +55,17 @@ const BarchartSVG = ({ svgSize, windowOn }) => {
                 }}
             >
                 {/* Apply the scaling directly to the DuplicatedSVG container */}
-                {windowOn && 
+                {windowOn &&
                     (
                         <div
                             style={{
                                 transform: `scale(${scale})`,
-                                transformOrigin: 'center center', // This might need adjustment
+                                transformOrigin: `${cursorPos.x}px ${cursorPos.y}px`,
                                 width: '100%',
                                 height: '100%',
                                 position: 'absolute',
-                                left: 0,
-                                top: 0,
+                                left: adjustX, // Apply the horizontal adjustment
+                                top: adjustY, // Apply the vertical adjustment
                                 overflow: "hidden",
                             }}
                         >
@@ -70,7 +73,7 @@ const BarchartSVG = ({ svgSize, windowOn }) => {
                         </div>
                     )
                 }
-                
+
             </div>
         </div>
     );
