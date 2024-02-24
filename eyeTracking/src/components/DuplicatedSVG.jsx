@@ -8,7 +8,7 @@ const DuplicatedSVG = ({cursorPos, ...props}) => (
         y="0px"
         viewBox="0 0 700 580"
         style={{
-            transform: 'scale(1.5)',
+            transform: 'scale(1)',
             transformOrigin: `${cursorPos.x}px ${cursorPos.y}px`,
         }}
         xmlSpace="preserve"
